@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include "Raspberry_Pi/pi_dht_read.h"
+#include "pi_dht_read.h"
  
 int main()
 {
-  printf("Hello world\n");
   int pin;
   pin = 4;
   float humidity, temperature = 0.0f;
