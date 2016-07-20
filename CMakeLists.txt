@@ -25,13 +25,12 @@ BINARY_DIR ${CMAKE_SOURCE_DIR}/external_generated
 INSTALL_COMMAND ""
 )
 include_directories(${CMAKE_SOURCE_DIR}/external_generated)
+link_directories(${PROJECT_SOURCE_DIR}/external_generated)
 
 add_executable(dht22    dht22.c 
                         ${DHT22_PLATFORM_PREFIX}pi_dht_read.c
                         ${DHT22_PLATFORM_PREFIX}pi_mmio.c
                         ${DHT22_PLATFORM_PREFIX}../common_dht_read.c
-                        
-                        ${CMAKE_SOURCE_DIR}/external_generated/open62541.c
                         )
-                        
+target_link_libraries(dht22 libopen62541.a)          
 add_dependencies(dht22 open62541)
