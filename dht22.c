@@ -1,17 +1,26 @@
 #include <signal.h>
 
-#include "open62541.h"
+/* we need to use some internal open62541 headers due to usage of experimental node generation feature */
+//# include "ua_types.h"
+//# include "ua_server.h"
+//# include "ua_config_standard.h"
+//# include "ua_network_tcp.h"
+//# include "ua_log_stdout.h"
+
+/* files nodeset.h and nodeset.c are created from server_nodeset.xml in the /src_generated directory by CMake */
+#include "nodeset.h"
+
 #include "pi_dht_read.h"
 #include "pi_mmio.h"
 
-#define SENSOR_TYPE     DHT22
-#define SENSOR_GPIO_PIN 4
+#define SENSOR_TYPE                       DHT22
+#define SENSOR_GPIO_PIN                   4
 
 #define DIAGNOSELED_GPIO_PIN              14
-#define DIAGNOSE_ITERATION_DURATION       200 //ms
-#define DIAGNOSE_ITERATIONS               15
-UA_Guid diagnoseJobId;
-UA_Int32 diagnoseIterationsCount = 0;
+#define DIAGNOSIS_ITERATION_DURATION      200 //ms
+#define DIAGNOSIS_ITERATIONS              15
+UA_Guid diagnosisJobId;
+UA_Int32 diagnosisIterationsCount = 0;
 
 #define READ_TEMPERATURE    1
 #define READ_HUMIDITY       2
@@ -73,20 +82,20 @@ readSensor(void *handle, const UA_NodeId nodeid, UA_Boolean sourceTimeStamp,
     return UA_STATUSCODE_GOOD;
 }
 
-static void diagnoseJob(UA_Server *server, void *data) {
-    if(diagnoseIterationsCount == DIAGNOSE_ITERATIONS){
+static void diagnosisJob(UA_Server *server, void *data) {
+    if(diagnosisIterationsCount == DIAGNOSIS_ITERATIONS){
         //cleanup
-        UA_Server_removeRepeatedJob(server, diagnoseJobId);
-        diagnoseIterationsCount = 0;
-        UA_Guid_init(&diagnoseJobId);
+        UA_Server_removeRepeatedJob(server, diagnosisJobId);
+        diagnosisIterationsCount = 0;
+        UA_Guid_init(&diagnosisJobId);
         //set led to low
         if(pi_mmio_init()==MMIO_SUCCESS)
             pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
-        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnose finished");
+        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnosis finished");
         return;
     }
-    diagnoseIterationsCount++;
-    if(diagnoseIterationsCount%2==0){
+    diagnosisIterationsCount++;
+    if(diagnosisIterationsCount%2==0){
         if(pi_mmio_init()==MMIO_SUCCESS)
             pi_mmio_set_high(DIAGNOSELED_GPIO_PIN);
     }else{
@@ -95,9 +104,9 @@ static void diagnoseJob(UA_Server *server, void *data) {
     }
 }
 static UA_StatusCode
-diagnoseMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const UA_Variant *input,
+diagnosisMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const UA_Variant *input,
                  size_t outputSize, UA_Variant *output) {
-        if(!UA_Guid_equal(&diagnoseJobId, &UA_GUID_NULL)){
+        if(!UA_Guid_equal(&diagnosisJobId, &UA_GUID_NULL)){
             return UA_STATUSCODE_BADNOTHINGTODO;
         }
 
@@ -107,10 +116,10 @@ diagnoseMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const U
             pi_mmio_set_output(DIAGNOSELED_GPIO_PIN);
         }
 
-        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnose started");
+        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnosis started");
         UA_Job job = {.type = UA_JOBTYPE_METHODCALL,
-                      .job.methodCall = {.method = diagnoseJob, .data = NULL} };
-        UA_Server_addRepeatedJob(server, job, 500, &diagnoseJobId);
+                      .job.methodCall = {.method = diagnosisJob, .data = NULL} };
+        UA_Server_addRepeatedJob(server, job, 500, &diagnosisJobId);
 
         return UA_STATUSCODE_GOOD;
 }
@@ -118,13 +127,16 @@ diagnoseMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const U
 int main(int argc, char** argv) {
     signal(SIGINT, stopHandler); /* catches ctrl-c */
 
-    UA_Guid_init(&diagnoseJobId);
+    UA_Guid_init(&diagnosisJobId);
 
     UA_ServerConfig config = UA_ServerConfig_standard;
     UA_ServerNetworkLayer nl = UA_ServerNetworkLayerTCP(UA_ConnectionConfig_standard, 16664);
     config.networkLayers = &nl;
     config.networkLayersSize = 1;
     UA_Server *server = UA_Server_new(config);
+
+    /* create nodes from nodeset */
+    nodeset(server);
 
     /* add a sensor sampling job to the server */
     UA_Job job = {.type = UA_JOBTYPE_METHODCALL,
@@ -147,6 +159,9 @@ int main(int argc, char** argv) {
                                         UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
                                         temperatureNodeName, UA_NODEID_NULL, temperatureAttr, temperatureDataSource, NULL);
 
+    /* add temperature datasource to a generated node */
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(2, 6002), temperatureDataSource);
+
     /* adding humidity node */
     UA_NodeId humidityNodeId = UA_NODEID_STRING(1, "humidity");
     UA_QualifiedName humidityNodeName = UA_QUALIFIEDNAME(1, "humidity");
@@ -163,17 +178,17 @@ int main(int argc, char** argv) {
                                         humidityNodeName, UA_NODEID_NULL, humidityAttr, humidityDataSource, NULL);
 
     /* adding diagnosis method node */
-    UA_MethodAttributes diagnoseAttr;
-    UA_MethodAttributes_init(&diagnoseAttr);
-    diagnoseAttr.description = UA_LOCALIZEDTEXT("en_US","diagnose");
-    diagnoseAttr.displayName = UA_LOCALIZEDTEXT("en_US","diagnose");
-    diagnoseAttr.executable = true;
-    diagnoseAttr.userExecutable = true;
+    UA_MethodAttributes diagnosisAttr;
+    UA_MethodAttributes_init(&diagnosisAttr);
+    diagnosisAttr.description = UA_LOCALIZEDTEXT("en_US","diagnosis");
+    diagnosisAttr.displayName = UA_LOCALIZEDTEXT("en_US","diagnosis");
+    diagnosisAttr.executable = true;
+    diagnosisAttr.userExecutable = true;
     UA_Server_addMethodNode(server, UA_NODEID_NULL,
                             UA_NODEID_NUMERIC(0, UA_NS0ID_OBJECTSFOLDER),
                             UA_NODEID_NUMERIC(0, UA_NS0ID_HASORDEREDCOMPONENT),
-                            UA_QUALIFIEDNAME(1, "diagnose"),
-                            diagnoseAttr, &diagnoseMethod, server,
+                            UA_QUALIFIEDNAME(1, "diagnosis"),
+                            diagnosisAttr, &diagnosisMethod, server,
                             0, NULL, 0, NULL, NULL);
 
     UA_StatusCode retval = UA_Server_run(server, &running);
