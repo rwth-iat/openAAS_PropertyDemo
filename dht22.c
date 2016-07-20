@@ -26,8 +26,13 @@ static void stopHandler(int sign) {
 }
 
 static void readSensorJob(UA_Server *server, void *data) {
-    readings.status = pi_dht_read(SENSOR_TYPE, SENSOR_GPIO_PIN, &readings.humidity, &readings.temperature);
-    readings.readTime = UA_DateTime_now();
+    Readings tempReadings;
+    tempReadings.status = pi_dht_read(SENSOR_TYPE, SENSOR_GPIO_PIN, &tempReadings.humidity, &tempReadings.temperature);
+    tempReadings.readTime = UA_DateTime_now();
+    //update a reading if its successful or the old reading is 60 seconds old
+    if(tempReadings.status == DHT_SUCCESS || tempReadings.readTime - readings.readTime > 60 * 1000 * UA_MSEC_TO_DATETIME){
+        readings = tempReadings;
+    }
 }
 
 static UA_StatusCode
