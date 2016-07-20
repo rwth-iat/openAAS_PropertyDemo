@@ -33,3 +33,5 @@ add_executable(dht22    dht22.c
                         
                         ${CMAKE_SOURCE_DIR}/external_generated/open62541.c
                         )
+                        
+add_dependencies(dht22 open62541)
