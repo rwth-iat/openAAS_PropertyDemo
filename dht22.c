@@ -2,9 +2,16 @@
 
 #include "open62541.h"
 #include "pi_dht_read.h"
+#include "pi_mmio.h"
 
 #define SENSOR_TYPE     DHT22
 #define SENSOR_GPIO_PIN 4
+
+#define DIAGNOSELED_GPIO_PIN              14
+#define DIAGNOSE_ITERATION_DURATION       100 //ms
+#define DIAGNOSE_ITERATIONS               20
+UA_Guid diagnoseJobId;
+UA_Int32 diagnoseIterationsCount = 0;
 
 #define READ_TEMPERATURE    1
 #define READ_HUMIDITY       2
@@ -19,6 +26,8 @@ typedef struct Readings {
     UA_Int32    status;
 } Readings;
 Readings readings = {.readTime = 0, .humidity = 0.0f, .temperature = 0.0f, .status=DHT_ERROR_GPIO};
+
+
 
 static void stopHandler(int sign) {
     UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "received ctrl-c");
@@ -64,8 +73,52 @@ readSensor(void *handle, const UA_NodeId nodeid, UA_Boolean sourceTimeStamp,
     return UA_STATUSCODE_GOOD;
 }
 
+static void diagnoseJob(UA_Server *server, void *data) {
+    if(diagnoseIterationsCount == DIAGNOSE_ITERATIONS){
+        //cleanup
+        UA_Server_removeRepeatedJob(server, diagnoseJobId);
+        diagnoseIterationsCount = 0;
+        UA_Guid_init(&diagnoseJobId);
+        //set led to low
+        if(pi_mmio_init()==MMIO_SUCCESS)
+            pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
+        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnose finished");
+        return;
+    }
+    diagnoseIterationsCount++;
+    if(diagnoseIterationsCount%2==0){
+        if(pi_mmio_init()==MMIO_SUCCESS)
+            pi_mmio_set_high(DIAGNOSELED_GPIO_PIN);
+    }else{
+        if(pi_mmio_init()==MMIO_SUCCESS)
+            pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
+    }
+}
+static UA_StatusCode
+diagnoseMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const UA_Variant *input,
+                 size_t outputSize, UA_Variant *output) {
+        if(!UA_Guid_equal(&diagnoseJobId, &UA_GUID_NULL)){
+            return UA_STATUSCODE_BADNOTHINGTODO;
+        }
+
+        UA_Server* server = (UA_Server*)handle;
+
+        if(pi_mmio_init()==MMIO_SUCCESS){
+            pi_mmio_set_output(DIAGNOSELED_GPIO_PIN);
+        }
+
+        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnose started");
+        UA_Job job = {.type = UA_JOBTYPE_METHODCALL,
+                      .job.methodCall = {.method = diagnoseJob, .data = NULL} };
+        UA_Server_addRepeatedJob(server, job, 500, &diagnoseJobId);
+
+        return UA_STATUSCODE_GOOD;
+}
+
 int main(int argc, char** argv) {
     signal(SIGINT, stopHandler); /* catches ctrl-c */
+
+    UA_Guid_init(&diagnoseJobId);
 
     UA_ServerConfig config = UA_ServerConfig_standard;
     UA_ServerNetworkLayer nl = UA_ServerNetworkLayerTCP(UA_ConnectionConfig_standard, 16664);
@@ -108,6 +161,20 @@ int main(int argc, char** argv) {
                                         UA_NODEID_NUMERIC(0, UA_NS0ID_OBJECTSFOLDER),
                                         UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
                                         humidityNodeName, UA_NODEID_NULL, humidityAttr, humidityDataSource, NULL);
+
+    /* adding diagnosis method node */
+    UA_MethodAttributes diagnoseAttr;
+    UA_MethodAttributes_init(&diagnoseAttr);
+    diagnoseAttr.description = UA_LOCALIZEDTEXT("en_US","diagnose");
+    diagnoseAttr.displayName = UA_LOCALIZEDTEXT("en_US","diagnose");
+    diagnoseAttr.executable = true;
+    diagnoseAttr.userExecutable = true;
+    UA_Server_addMethodNode(server, UA_NODEID_NULL,
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_OBJECTSFOLDER),
+                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASORDEREDCOMPONENT),
+                            UA_QUALIFIEDNAME(1, "diagnose"),
+                            diagnoseAttr, &diagnoseMethod, server,
+                            0, NULL, 0, NULL, NULL);
 
     UA_StatusCode retval = UA_Server_run(server, &running);
     UA_Server_delete(server);
