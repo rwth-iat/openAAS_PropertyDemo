@@ -8,8 +8,8 @@
 #define SENSOR_GPIO_PIN 4
 
 #define DIAGNOSELED_GPIO_PIN              14
-#define DIAGNOSE_ITERATION_DURATION       100 //ms
-#define DIAGNOSE_ITERATIONS               20
+#define DIAGNOSE_ITERATION_DURATION       500 //ms
+#define DIAGNOSE_ITERATIONS               6
 UA_Guid diagnoseJobId;
 UA_Int32 diagnoseIterationsCount = 0;
 
