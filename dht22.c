@@ -17,10 +17,8 @@
 #define SENSOR_GPIO_PIN                   4
 
 #define DIAGNOSELED_GPIO_PIN              14
-#define DIAGNOSIS_ITERATION_DURATION      200 //ms
-#define DIAGNOSIS_ITERATIONS              15
+#define DIAGNOSIS_DURATION      5000 //ms
 UA_Guid diagnosisJobId;
-UA_Int32 diagnosisIterationsCount = 0;
 
 #define READ_TEMPERATURE    1
 #define READ_HUMIDITY       2
@@ -83,25 +81,14 @@ readSensor(void *handle, const UA_NodeId nodeid, UA_Boolean sourceTimeStamp,
 }
 
 static void diagnosisJob(UA_Server *server, void *data) {
-    if(diagnosisIterationsCount == DIAGNOSIS_ITERATIONS){
-        //cleanup
-        UA_Server_removeRepeatedJob(server, diagnosisJobId);
-        diagnosisIterationsCount = 0;
-        UA_Guid_init(&diagnosisJobId);
-        //set led to low
-        if(pi_mmio_init()==MMIO_SUCCESS)
-            pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
-        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnosis finished");
-        return;
-    }
-    diagnosisIterationsCount++;
-    if(diagnosisIterationsCount%2==0){
-        if(pi_mmio_init()==MMIO_SUCCESS)
-            pi_mmio_set_high(DIAGNOSELED_GPIO_PIN);
-    }else{
-        if(pi_mmio_init()==MMIO_SUCCESS)
-            pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
-    }
+    //cleanup
+    UA_Server_removeRepeatedJob(server, diagnosisJobId);
+    UA_Guid_init(&diagnosisJobId);
+    //set led to low
+    if(pi_mmio_init()==MMIO_SUCCESS)
+        pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
+    UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnosis finished");
+    return;
 }
 static UA_StatusCode
 diagnosisMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const UA_Variant *input,
@@ -114,12 +101,13 @@ diagnosisMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const 
 
         if(pi_mmio_init()==MMIO_SUCCESS){
             pi_mmio_set_output(DIAGNOSELED_GPIO_PIN);
+            pi_mmio_set_high(DIAGNOSELED_GPIO_PIN);
         }
 
         UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Diagnosis started");
         UA_Job job = {.type = UA_JOBTYPE_METHODCALL,
                       .job.methodCall = {.method = diagnosisJob, .data = NULL} };
-        UA_Server_addRepeatedJob(server, job, 500, &diagnosisJobId);
+        UA_Server_addRepeatedJob(server, job, DIAGNOSIS_DURATION, &diagnosisJobId);
 
         return UA_STATUSCODE_GOOD;
 }
