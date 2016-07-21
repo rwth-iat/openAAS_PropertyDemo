@@ -1,11 +1,8 @@
 #include <signal.h>
 
-/* we need to use some internal open62541 headers due to usage of experimental node generation feature */
-//# include "ua_types.h"
-//# include "ua_server.h"
-//# include "ua_config_standard.h"
-//# include "ua_network_tcp.h"
-//# include "ua_log_stdout.h"
+#include "ua_config_standard.h"
+#include "ua_network_tcp.h"
+#include "ua_log_stdout.h"
 
 /* files nodeset.h and nodeset.c are created from server_nodeset.xml in the /src_generated directory by CMake */
 #include "nodeset.h"
@@ -148,7 +145,7 @@ int main(int argc, char** argv) {
                                         temperatureNodeName, UA_NODEID_NULL, temperatureAttr, temperatureDataSource, NULL);
 
     /* add temperature datasource to a generated node */
-    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(2, 6002), temperatureDataSource);
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(4, 6001), temperatureDataSource);
 
     /* adding humidity node */
     UA_NodeId humidityNodeId = UA_NODEID_STRING(1, "humidity");
