@@ -18,7 +18,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="6G4XqE5KDtdOxCP4qRgcBg==" Version="1.4.4"/>
+            <ModelInfo Tool="UaModeler" Hash="T0FMQYod5SHAU1Kz/Fcyxg==" Version="1.4.4"/>
         </Extension>
     </Extensions>
     <UADataType NodeId="ns=1;i=23003" BrowseName="1:ExpressionLogicEnumType">
@@ -148,8 +148,8 @@
             <Reference ReferenceType="HasSubtype" IsForward="false">i=35</Reference>
         </References>
     </UAReferenceType>
-    <UAObjectType NodeId="ns=1;i=1002" BrowseName="1:PropertyValueStatementList">
-        <DisplayName>PropertyValueStatementList</DisplayName>
+    <UAObjectType NodeId="ns=1;i=1002" BrowseName="1:PropertyValueStatementListType">
+        <DisplayName>PropertyValueStatementListType</DisplayName>
         <References>
             <Reference ReferenceType="HasPropertyValueStatement">ns=1;i=5002</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5003</Reference>
@@ -180,11 +180,11 @@
     <UAObject ParentNodeId="ns=1;i=1002" NodeId="ns=1;i=5003" BrowseName="1:Author">
         <DisplayName>Author</DisplayName>
         <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1002</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=1;i=21003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6014</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6019</Reference>
             <Reference ReferenceType="HasModellingRule">i=80</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1002</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6014" BrowseName="1:IdSpecification" UserAccessLevel="3" AccessLevel="3">
@@ -279,7 +279,6 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5001</Reference>
             <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6016</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6009</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6007</Reference>
         </References>
@@ -339,14 +338,6 @@
         <Value>
             <uax:Int32>0</uax:Int32>
         </Value>
-    </UAVariable>
-    <UAVariable DataType="DateTime" ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=6016" BrowseName="1:TimeStamp" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>TimeStamp</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasModellingRule">i=80</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1003</Reference>
-        </References>
     </UAVariable>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=6009" BrowseName="1:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>

@@ -139,10 +139,10 @@ int main(int argc, char** argv) {
     temperatureAttr.description = UA_LOCALIZEDTEXT("en_US","temperature");
     temperatureAttr.displayName = UA_LOCALIZEDTEXT("en_US","temperature");
 
-    UA_Server_addDataSourceVariableNode(server, temperatureNodeId,
+    /* UA_Server_addDataSourceVariableNode(server, temperatureNodeId,
                                         UA_NODEID_NUMERIC(0, UA_NS0ID_OBJECTSFOLDER),
                                         UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
-                                        temperatureNodeName, UA_NODEID_NULL, temperatureAttr, temperatureDataSource, NULL);
+                                        temperatureNodeName, UA_NODEID_NULL, temperatureAttr, temperatureDataSource, NULL); */
 
     /* add temperature datasource to a generated node */
     UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(4, 6001), temperatureDataSource);
@@ -157,10 +157,13 @@ int main(int argc, char** argv) {
     humidityAttr.description = UA_LOCALIZEDTEXT("en_US","humidity");
     humidityAttr.displayName = UA_LOCALIZEDTEXT("en_US","humidity");
 
-    UA_Server_addDataSourceVariableNode(server, humidityNodeId,
+    /* UA_Server_addDataSourceVariableNode(server, humidityNodeId,
                                         UA_NODEID_NUMERIC(0, UA_NS0ID_OBJECTSFOLDER),
                                         UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
-                                        humidityNodeName, UA_NODEID_NULL, humidityAttr, humidityDataSource, NULL);
+                                        humidityNodeName, UA_NODEID_NULL, humidityAttr, humidityDataSource, NULL); */
+
+    /* add temperature datasource to a generated node */
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(4, 6247), humidityDataSource);
 
     /* adding diagnosis method node */
     UA_MethodAttributes diagnosisAttr;
