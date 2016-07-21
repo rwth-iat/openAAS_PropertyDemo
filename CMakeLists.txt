@@ -37,7 +37,16 @@ add_custom_command(OUTPUT ${PROJECT_BINARY_DIR}/nodeset.h ${PROJECT_BINARY_DIR}/
                                                 ${OPEN62541_DIR}/tools/schema/namespace0/Opc.Ua.NodeSet2.xml
                                                 ${PROJECT_SOURCE_DIR}/server_nodeset.xml
                                                 ${PROJECT_BINARY_DIR}/nodeset
-                  DEPENDS ${PROJECT_SOURCE_DIR}/server_nodeset.xml)
+                  DEPENDS ${OPEN62541_DIR}/tools/pyUANamespace/generate_open62541CCode.py
+                          ${OPEN62541_DIR}/tools/pyUANamespace/open62541_MacroHelper.py
+                          ${OPEN62541_DIR}/tools/pyUANamespace/ua_builtin_types.py
+                          ${OPEN62541_DIR}/tools/pyUANamespace/ua_constants.py
+                          ${OPEN62541_DIR}/tools/pyUANamespace/ua_namespace.py
+                          ${OPEN62541_DIR}/tools/pyUANamespace/ua_node_types.py
+                          ${OPEN62541_DIR}/tools/pyUANamespace/NodeID_Blacklist_FullNS0.txt
+                          
+                          ${PROJECT_SOURCE_DIR}/server_nodeset.xml
+                  )
 
 add_executable(dht22    dht22.c 
                         ${PROJECT_BINARY_DIR}/nodeset.c
