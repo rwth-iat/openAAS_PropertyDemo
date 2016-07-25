@@ -11,9 +11,9 @@
 #include "pi_mmio.h"
 
 #define SENSOR_TYPE                       DHT22
-#define SENSOR_GPIO_PIN                   4
+#define SENSOR_GPIO_PIN                   17
 
-#define DIAGNOSELED_GPIO_PIN              14
+#define DIAGNOSELED_GPIO_PIN              7
 #define DIAGNOSIS_DURATION      5000 //ms
 UA_Guid diagnosisJobId;
 
