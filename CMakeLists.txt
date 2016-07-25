@@ -6,8 +6,8 @@ set (CMAKE_C_FLAGS "--std=gnu99 ${CMAKE_C_FLAGS}") #dht22 driver needs gnu99
 
 # Set default build type.
 if(NOT CMAKE_BUILD_TYPE)
-    message(STATUS "CMAKE_BUILD_TYPE not given; setting to 'Release'.")
-    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build." FORCE)
+    message(STATUS "CMAKE_BUILD_TYPE not given; setting to 'Debug'.")
+    set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Choose the type of build." FORCE)
 endif()
 
 #dht22 driver business
@@ -40,7 +40,7 @@ add_custom_command(OUTPUT ${PROJECT_BINARY_DIR}/nodeset.h ${PROJECT_BINARY_DIR}/
                   PRE_BUILD
                   COMMAND ${PYTHON_EXECUTABLE} ${OPEN62541_DIR}/tools/pyUANamespace/generate_open62541CCode.py
                                                 -i ${OPEN62541_DIR}/tools/pyUANamespace/NodeID_Blacklist_FullNS0.txt
-                                                ${OPEN62541_DIR}/tools/schema/namespace0/Opc.Ua.NodeSet2.Minimal.xml
+                                                ${OPEN62541_DIR}/tools/schema/namespace0/Opc.Ua.NodeSet2.xml
                                                 ${MODELS}
                                                 ${PROJECT_BINARY_DIR}/nodeset
                   DEPENDS ${OPEN62541_DIR}/tools/pyUANamespace/generate_open62541CCode.py
