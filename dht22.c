@@ -13,7 +13,7 @@
 #define SENSOR_TYPE                       DHT22
 #define SENSOR_GPIO_PIN                   17
 
-#define DIAGNOSELED_GPIO_PIN              7
+#define DIAGNOSELED_GPIO_PIN              13
 #define DIAGNOSIS_DURATION      5000 //ms
 UA_Guid diagnosisJobId;
 
