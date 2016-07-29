@@ -15,7 +15,7 @@
 
 #define DIAGNOSELED_GPIO_PIN              13
 UA_Guid diagnosisJobId;
-#define LED_REC_NAME                    "LED"
+#define LED_REC_NAME                    "http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Lamp"
 
 #define READ_TEMPERATURE    1
 #define READ_HUMIDITY       2
@@ -89,7 +89,7 @@ static UA_StatusCode
 diagnosisMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const UA_Variant *input,
                  size_t outputSize, UA_Variant *output) {
 
-        if(inputSize != 2){
+        if(inputSize != 3){
             return UA_STATUSCODE_BADMETHODINVALID;
         }
 
@@ -97,8 +97,8 @@ diagnosisMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const 
             return UA_STATUSCODE_BADMETHODINVALID;
         }
 
-        UA_String* receiver = (UA_String*)input[0].data;
-        UA_String* msg = (UA_String*)input[1].data;
+        UA_String* receiver = (UA_String*)input[1].data;
+        UA_String* msg = (UA_String*)input[2].data;
 
         UA_String rec = UA_STRING(LED_REC_NAME);
         if(!UA_String_equal(receiver, &rec)){
@@ -112,15 +112,19 @@ diagnosisMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const 
 
         UA_String on = UA_STRING("ON");
         if(UA_String_equal(msg, &on)){
-            if(pi_mmio_init()==MMIO_SUCCESS)
+            if(pi_mmio_init()==MMIO_SUCCESS){
                 pi_mmio_set_high(DIAGNOSELED_GPIO_PIN);
+                ledOn = true;
+            }
             return UA_STATUSCODE_GOOD;
         }
 
         UA_String off = UA_STRING("OFF");
         if(UA_String_equal(msg, &off)){
-            if(pi_mmio_init()==MMIO_SUCCESS)
+            if(pi_mmio_init()==MMIO_SUCCESS){
                 pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
+                ledOn = false;
+            }
             return UA_STATUSCODE_GOOD;
         }
 
@@ -169,7 +173,9 @@ int main(int argc, char** argv) {
 
     //default applications "sees" NS 0 and NS1
     UA_ApplicationDescription* app1 = &config.applicationDescription;
+
     app1->applicationName.text = UA_STRING_ALLOC("Message");
+    app1->applicationUri = UA_STRING_ALLOC("http://openAAS.org/metra");
     app1->discoveryUrlsSize = 1;
     app1->discoveryUrls = UA_Array_new(1, &UA_TYPES[UA_TYPES_STRING]);
     app1->discoveryUrls[0] = UA_STRING_ALLOC("/app0");
@@ -178,7 +184,7 @@ int main(int argc, char** argv) {
 
     /* create nodes from nodeset */
     nodeset(server);
-
+    UA_Server_addNamespace(server,"http://openAAS.org/metra");
     /* add a sensor sampling job to the server */
     UA_Job job = {.type = UA_JOBTYPE_METHODCALL,
                   .job.methodCall = {.method = readSensorJob, .data = NULL} };
@@ -189,6 +195,10 @@ int main(int argc, char** argv) {
     UA_DataSource temperatureDataSource = (UA_DataSource) {
             .handle = (void*)READ_TEMPERATURE, .read = readSensor, .write = NULL};
 
+    /* adding LED datasource */
+
+    UA_DataSource LEDDataSource = (UA_DataSource) {.handle = (void*)READ_TEMPERATURE, .read = readLed, .write = NULL};
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6003), LEDDataSource);
     /*UA_NodeId temperatureNodeId = UA_NODEID_STRING(1, "temperature");
     UA_QualifiedName temperatureNodeName = UA_QUALIFIEDNAME(1, "temperature");
     UA_VariableAttributes temperatureAttr;
@@ -202,7 +212,7 @@ int main(int argc, char** argv) {
                                         temperatureNodeName, UA_NODEID_NULL, temperatureAttr, temperatureDataSource, NULL); */
 
     /* add temperature datasource to a generated node */
-    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(4, 6001), temperatureDataSource);
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6180), temperatureDataSource);
 
     /* adding humidity node */
     UA_DataSource humidityDataSource = (UA_DataSource) {
@@ -221,24 +231,34 @@ int main(int argc, char** argv) {
                                         humidityNodeName, UA_NODEID_NULL, humidityAttr, humidityDataSource, NULL); */
 
     /* add temperature datasource to a generated node */
-    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(4, 6247), humidityDataSource);
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6026), humidityDataSource);
 
     /* LMSR */
     UA_ObjectAttributes objAtrPeerManager;
     UA_ObjectAttributes_init(&objAtrPeerManager);
-    UA_NodeId peerManagerNodeId = UA_NODEID_NUMERIC(1, 5000);
+    UA_NodeId peerManagerNodeId = UA_NODEID_NUMERIC(1, 1);
     char* peerManager = "LMSR";
-    createComponent(&objAtrPeerManager, peerManagerNodeId, peerManager, server, UA_NODEID_NUMERIC(0, 85));
+    createComponent(&objAtrPeerManager, peerManagerNodeId, peerManager, server, UA_NODEID_NUMERIC(0, 2253));
 
     /* Array with registered components */
-    UA_NodeId registeredComponentsId = UA_NODEID_NUMERIC(1, 5001);
+    UA_NodeId registeredComponentsId = UA_NODEID_NUMERIC(1, 3);
     UA_QualifiedName registeredComponentsNodeName = UA_QUALIFIEDNAME(1, "registeredComponents");
     UA_VariableAttributes registeredComponentsAttr;
     UA_VariableAttributes_init(&registeredComponentsAttr);
-    UA_String* registeredComponentsArray = UA_Array_new(1, &UA_TYPES[UA_TYPES_STRING]);
+    size_t componentCount = 4;
+    UA_String* registeredComponentsArray = UA_Array_new(componentCount, &UA_TYPES[UA_TYPES_STRING]);
     UA_String_init(&registeredComponentsArray[0]);
-    registeredComponentsArray[0] = UA_STRING_ALLOC(LED_REC_NAME);
-    UA_Variant_setArray(&registeredComponentsAttr.value, registeredComponentsArray, 1, &UA_TYPES[UA_TYPES_STRING]);
+    registeredComponentsArray[0] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor");
+    UA_String_init(&registeredComponentsArray[1]);
+    registeredComponentsArray[1] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Humidity");
+    UA_String_init(&registeredComponentsArray[2]);
+    registeredComponentsArray[2] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Lamp");
+    UA_String_init(&registeredComponentsArray[3]);
+    registeredComponentsArray[3] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Temperature");
+
+
+
+    UA_Variant_setArray(&registeredComponentsAttr.value, registeredComponentsArray, componentCount, &UA_TYPES[UA_TYPES_STRING]);
     registeredComponentsAttr.description = UA_LOCALIZEDTEXT("en_US","registeredComponents");
     registeredComponentsAttr.displayName = UA_LOCALIZEDTEXT("en_US","registeredComponents");
 
@@ -255,24 +275,29 @@ int main(int argc, char** argv) {
     diagnosisAttr.userExecutable = true;
 
     /* add the method node with the callback */
-    UA_Argument* inputArguments = UA_Array_new(2,&UA_TYPES[UA_TYPES_ARGUMENT]);
+    UA_Argument* inputArguments = UA_Array_new(3,&UA_TYPES[UA_TYPES_ARGUMENT]);
     UA_Argument_init(&inputArguments[0]);
     inputArguments[0].dataType = UA_TYPES[UA_TYPES_STRING].typeId;
-    inputArguments[0].description = UA_LOCALIZEDTEXT("en_US", "Receiver");
-    inputArguments[0].name = UA_STRING("Receiver");
+    inputArguments[0].description = UA_LOCALIZEDTEXT("en_US", "SenderAddress");
+    inputArguments[0].name = UA_STRING("SenderAddress");
     inputArguments[0].valueRank = -1;
     UA_Argument_init(&inputArguments[1]);
     inputArguments[1].dataType = UA_TYPES[UA_TYPES_STRING].typeId;
-    inputArguments[1].description = UA_LOCALIZEDTEXT("en_US", "Message");
-    inputArguments[1].name = UA_STRING("Message");
+    inputArguments[1].description = UA_LOCALIZEDTEXT("en_US", "ReceiverAddress");
+    inputArguments[1].name = UA_STRING("ReceiverAddress");
     inputArguments[1].valueRank = -1;
+    UA_Argument_init(&inputArguments[2]);
+    inputArguments[2].dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+    inputArguments[2].description = UA_LOCALIZEDTEXT("en_US", "Message");
+    inputArguments[2].name = UA_STRING("Message");
+    inputArguments[2].valueRank = -1;
 
-    UA_Server_addMethodNode(server, UA_NODEID_NUMERIC(1, 5002),
+    UA_Server_addMethodNode(server, UA_NODEID_NUMERIC(1, 2),
                             peerManagerNodeId,
                             UA_NODEID_NUMERIC(0, UA_NS0ID_HASORDEREDCOMPONENT),
                             UA_QUALIFIEDNAME(1, "dropMessage"),
                             diagnosisAttr, &diagnosisMethod, server,
-                            2, inputArguments, 0, NULL, NULL);
+                            3, inputArguments, 0, NULL, NULL);
 
 
     {
@@ -283,11 +308,10 @@ int main(int argc, char** argv) {
         app0.discoveryUrlsSize = 1;
         app0.discoveryUrls = UA_Array_new(1, &UA_TYPES[UA_TYPES_STRING]);
         app0.discoveryUrls[0] = UA_STRING_ALLOC("/app1");
-        UA_UInt16 ns[4];
+        UA_UInt16 ns[3];
         ns[0] = 0;
         ns[1] = 2;
         ns[2] = 3;
-        ns[3] = 4;
         UA_Server_addApplication(server, &app0, ns, 4);
     }
 
@@ -307,7 +331,26 @@ int main(int argc, char** argv) {
         ns[4] = 4;
         UA_Server_addApplication(server, &app0, ns, 5);
     }
+    {
+        UA_ExpandedNodeId organizes;
+        UA_ExpandedNodeId_init(&organizes);
+        organizes.nodeId = UA_NODEID_NUMERIC(3,5003);
+        UA_Server_addReference(server,UA_NODEID_NUMERIC(3,5036),UA_NODEID_NUMERIC(0,35),organizes,true);
+    }
 
+    {
+            UA_ExpandedNodeId organizes;
+            UA_ExpandedNodeId_init(&organizes);
+            organizes.nodeId = UA_NODEID_NUMERIC(3,5076);
+            UA_Server_addReference(server,UA_NODEID_NUMERIC(3,5036),UA_NODEID_NUMERIC(0,35),organizes,true);
+    }
+
+    {
+            UA_ExpandedNodeId organizes;
+            UA_ExpandedNodeId_init(&organizes);
+            organizes.nodeId = UA_NODEID_NUMERIC(3,5041);
+            UA_Server_addReference(server,UA_NODEID_NUMERIC(3,5036),UA_NODEID_NUMERIC(0,35),organizes,true);
+    }
     UA_StatusCode retval = UA_Server_run(server, &running);
     UA_Server_delete(server);
     nl.deleteMembers(&nl);
