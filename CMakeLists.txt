@@ -30,8 +30,7 @@ link_directories(${PROJECT_SOURCE_DIR}/external_generated)
 include_directories(${PROJECT_BINARY_DIR}) #for nodeset.h
 
 set(MODELS  ${PROJECT_SOURCE_DIR}/propertymodel.xml
-            ${PROJECT_SOURCE_DIR}/openaas_sensortype.xml
-            ${PROJECT_SOURCE_DIR}/openaas_sensortype_instance.xml
+            ${PROJECT_SOURCE_DIR}/assetadministrationshell.xml
             )
 
 

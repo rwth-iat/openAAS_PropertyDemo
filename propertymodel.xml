@@ -18,7 +18,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="PN2D9bRIBMx68gKC/zv+/w==" Version="1.4.4"/>
+            <ModelInfo Tool="UaModeler" Hash="T0FMQYod5SHAU1Kz/Fcyxg==" Version="1.4.4"/>
         </Extension>
     </Extensions>
     <UADataType NodeId="ns=1;i=23003" BrowseName="1:ExpressionLogicEnumType">
@@ -148,30 +148,6 @@
             <Reference ReferenceType="HasSubtype" IsForward="false">i=35</Reference>
         </References>
     </UAReferenceType>
-    <UAVariableType ValueRank="-2" NodeId="ns=1;i=2002" BrowseName="1:IdentificatorVariableType">
-        <DisplayName>IdentificatorVariableType</DisplayName>
-        <References>
-            <Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6016</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6020</Reference>
-        </References>
-    </UAVariableType>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=2002" NodeId="ns=1;i=6016" BrowseName="1:IdSpecification" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>IdSpecification</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2002</Reference>
-            <Reference ReferenceType="HasModellingRule">i=78</Reference>
-        </References>
-    </UAVariable>
-    <UAVariable DataType="IdentificatorEnumType" ParentNodeId="ns=1;i=2002" NodeId="ns=1;i=6020" BrowseName="1:IdType" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>IdType</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2002</Reference>
-            <Reference ReferenceType="HasModellingRule">i=78</Reference>
-        </References>
-    </UAVariable>
     <UAObjectType NodeId="ns=1;i=1002" BrowseName="1:PropertyValueStatementListType">
         <DisplayName>PropertyValueStatementListType</DisplayName>
         <References>
