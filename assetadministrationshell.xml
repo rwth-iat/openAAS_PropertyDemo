@@ -15,6 +15,7 @@
         <Alias Alias="HasSubtype">i=45</Alias>
         <Alias Alias="HasProperty">i=46</Alias>
         <Alias Alias="HasComponent">i=47</Alias>
+        <Alias Alias="String">i=12881</Alias>
         <Alias Alias="IdentificatorDataType">ns=2;i=3002</Alias>
         <Alias Alias="IdentificatorEnumType">ns=2;i=23002</Alias>
         <Alias Alias="ExpressionLogicEnumType">ns=2;i=23003</Alias>
@@ -2330,7 +2331,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5087</Reference>
         </References>
         <Value>
-            <uax:String>red</uax:String>
+            <uax:String>green</uax:String>
         </Value>
     </UAVariable>
     <UAObject NodeId="ns=1;i=5041" BrowseName="1:Inventory001_MultiSensor_Temperature">
@@ -4147,4 +4148,3 @@
         </Value>
     </UAVariable>
 </UANodeSet>
-
