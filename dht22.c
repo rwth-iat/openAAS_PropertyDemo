@@ -25,11 +25,12 @@ UA_Logger logger = UA_Log_Stdout;
 
 typedef struct Readings {
     UA_DateTime readTime;
-    UA_Float    humidity;
-    UA_Float    temperature;
-    UA_Int32    status;
+    UA_Float humidity;
+    UA_Float temperature;
+    UA_Int32 status;
 } Readings;
-Readings readings = {.readTime = 0, .humidity = 0.0f, .temperature = 0.0f, .status=DHT_ERROR_GPIO};
+Readings readings = { .readTime = 0, .humidity = 0.0f, .temperature = 0.0f,
+        .status = DHT_ERROR_GPIO };
 
 UA_Boolean ledOn = false;
 
@@ -40,96 +41,107 @@ static void stopHandler(int sign) {
 
 static void readSensorJob(UA_Server *server, void *data) {
     Readings tempReadings;
-    tempReadings.status = pi_dht_read(SENSOR_TYPE, SENSOR_GPIO_PIN, &tempReadings.humidity, &tempReadings.temperature);
+    tempReadings.status = pi_dht_read(SENSOR_TYPE, SENSOR_GPIO_PIN,
+            &tempReadings.humidity, &tempReadings.temperature);
     tempReadings.readTime = UA_DateTime_now();
     //update a reading if its successful or the old reading is 60 seconds old
-    if(tempReadings.status == DHT_SUCCESS || readings.status != DHT_SUCCESS || tempReadings.readTime - readings.readTime > 60 * 1000 * UA_MSEC_TO_DATETIME){
+    if (tempReadings.status == DHT_SUCCESS || readings.status != DHT_SUCCESS
+            || tempReadings.readTime - readings.readTime
+                    > 60 * 1000 * UA_MSEC_TO_DATETIME) {
         readings = tempReadings;
     }
 }
 
-static UA_StatusCode
-readSensor(void *handle, const UA_NodeId nodeid, UA_Boolean sourceTimeStamp,
-            const UA_NumericRange *range, UA_DataValue *dataValue) {
+static UA_StatusCode readSensor(void *handle, const UA_NodeId nodeid,
+        UA_Boolean sourceTimeStamp, const UA_NumericRange *range,
+        UA_DataValue *dataValue) {
     dataValue->hasValue = true;
-    if((UA_Int32)handle == READ_TEMPERATURE){
-        UA_Variant_setScalarCopy(&dataValue->value, &readings.temperature, &UA_TYPES[UA_TYPES_FLOAT]);
+    if ((UA_Int32) handle == READ_TEMPERATURE) {
+        UA_Variant_setScalarCopy(&dataValue->value, &readings.temperature,
+                &UA_TYPES[UA_TYPES_FLOAT]);
     } else {
-        UA_Variant_setScalarCopy(&dataValue->value, &readings.humidity, &UA_TYPES[UA_TYPES_FLOAT]);
+        UA_Variant_setScalarCopy(&dataValue->value, &readings.humidity,
+                &UA_TYPES[UA_TYPES_FLOAT]);
     }
     dataValue->hasSourceTimestamp = true;
     UA_DateTime_copy(&readings.readTime, &dataValue->sourceTimestamp);
     dataValue->hasStatus = true;
-    switch(readings.status){
-        case DHT_SUCCESS:
-            dataValue->status = UA_STATUSCODE_GOOD;
-            break;
-        case DHT_ERROR_TIMEOUT:
-            dataValue->status = UA_STATUSCODE_BADTIMEOUT;
-            break;
-        case DHT_ERROR_GPIO:
-            dataValue->status = UA_STATUSCODE_BADCOMMUNICATIONERROR;
-            break;
-        default:
-            dataValue->status = UA_STATUSCODE_BADNOTFOUND;
-            break;
+    switch (readings.status) {
+    case DHT_SUCCESS:
+        dataValue->status = UA_STATUSCODE_GOOD;
+        break;
+    case DHT_ERROR_TIMEOUT:
+        dataValue->status = UA_STATUSCODE_BADTIMEOUT;
+        break;
+    case DHT_ERROR_GPIO:
+        dataValue->status = UA_STATUSCODE_BADCOMMUNICATIONERROR;
+        break;
+    default:
+        dataValue->status = UA_STATUSCODE_BADNOTFOUND;
+        break;
     }
     return UA_STATUSCODE_GOOD;
 }
 
-static UA_StatusCode
-readLed(void *handle, const UA_NodeId nodeid, UA_Boolean sourceTimeStamp,
-            const UA_NumericRange *range, UA_DataValue *dataValue) {
+static UA_StatusCode readLed(void *handle, const UA_NodeId nodeid,
+        UA_Boolean sourceTimeStamp, const UA_NumericRange *range,
+        UA_DataValue *dataValue) {
     dataValue->hasValue = true;
-    UA_Variant_setScalarCopy(&dataValue->value, &ledOn, &UA_TYPES[UA_TYPES_BOOLEAN]);
+    UA_Variant_setScalarCopy(&dataValue->value, &ledOn,
+            &UA_TYPES[UA_TYPES_BOOLEAN]);
     return UA_STATUSCODE_GOOD;
 }
 
-static UA_StatusCode
-diagnosisMethod(void *handle, const UA_NodeId objectId, size_t inputSize, const UA_Variant *input,
-                 size_t outputSize, UA_Variant *output) {
+static UA_StatusCode switchLED(void *handle, const UA_NodeId objectId,
+        size_t inputSize, const UA_Variant *input, size_t outputSize,
+        UA_Variant *output) {
 
-        if(inputSize != 3){
-            return UA_STATUSCODE_BADMETHODINVALID;
+    UA_String* msg = (UA_String*) input[0].data;
+    if (pi_mmio_init() == MMIO_SUCCESS) {
+        pi_mmio_set_output(DIAGNOSELED_GPIO_PIN);
+    }
+
+    UA_String on = UA_STRING("ON");
+    if (UA_String_equal(msg, &on)) {
+        if (pi_mmio_init() == MMIO_SUCCESS) {
+            pi_mmio_set_high(DIAGNOSELED_GPIO_PIN);
+            ledOn = true;
         }
+        return UA_STATUSCODE_GOOD;
+    }
 
-        if(input[0].type != &UA_TYPES[UA_TYPES_STRING] && input[1].type != &UA_TYPES[UA_TYPES_STRING]){
-            return UA_STATUSCODE_BADMETHODINVALID;
+    UA_String off = UA_STRING("OFF");
+    if (UA_String_equal(msg, &off)) {
+        if (pi_mmio_init() == MMIO_SUCCESS) {
+            pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
+            ledOn = false;
         }
+        return UA_STATUSCODE_GOOD;
+    }
 
-        UA_String* receiver = (UA_String*)input[1].data;
-        UA_String* msg = (UA_String*)input[2].data;
+    UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Wrong message");
+    return UA_STATUSCODE_BADMETHODINVALID;
+}
+static UA_StatusCode diagnosisMethod(void *handle, const UA_NodeId objectId,
+        size_t inputSize, const UA_Variant *input, size_t outputSize,
+        UA_Variant *output) {
 
-        UA_String rec = UA_STRING(LED_REC_NAME);
-        if(!UA_String_equal(receiver, &rec)){
-            UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Wrong receiver");
-            return UA_STATUSCODE_BADMETHODINVALID;
-        }
-
-        if(pi_mmio_init()==MMIO_SUCCESS){
-            pi_mmio_set_output(DIAGNOSELED_GPIO_PIN);
-        }
-
-        UA_String on = UA_STRING("ON");
-        if(UA_String_equal(msg, &on)){
-            if(pi_mmio_init()==MMIO_SUCCESS){
-                pi_mmio_set_high(DIAGNOSELED_GPIO_PIN);
-                ledOn = true;
-            }
-            return UA_STATUSCODE_GOOD;
-        }
-
-        UA_String off = UA_STRING("OFF");
-        if(UA_String_equal(msg, &off)){
-            if(pi_mmio_init()==MMIO_SUCCESS){
-                pi_mmio_set_low(DIAGNOSELED_GPIO_PIN);
-                ledOn = false;
-            }
-            return UA_STATUSCODE_GOOD;
-        }
-
-        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Wrong message");
+    if (inputSize != 3) {
         return UA_STATUSCODE_BADMETHODINVALID;
+    }
+
+    if (input[0].type != &UA_TYPES[UA_TYPES_STRING]
+            && input[1].type != &UA_TYPES[UA_TYPES_STRING]) {
+        return UA_STATUSCODE_BADMETHODINVALID;
+    }
+    UA_String* receiver = (UA_String*) input[1].data;
+    UA_String rec = UA_STRING(LED_REC_NAME);
+
+    if (!UA_String_equal(receiver, &rec)) {
+        UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Wrong receiver");
+        return UA_STATUSCODE_BADMETHODINVALID;
+    }
+    return switchLED(handle, objectId, 1, &input[2], 0, NULL);
 }
 
 static UA_UInt32 currentId = 1000;
@@ -167,7 +179,8 @@ int main(int argc, char** argv) {
     UA_Guid_init(&diagnosisJobId);
 
     UA_ServerConfig config = UA_ServerConfig_standard;
-    UA_ServerNetworkLayer nl = UA_ServerNetworkLayerTCP(UA_ConnectionConfig_standard, 16664);
+    UA_ServerNetworkLayer nl = UA_ServerNetworkLayerTCP(
+            UA_ConnectionConfig_standard, 16664);
     config.networkLayers = &nl;
     config.networkLayersSize = 1;
 
@@ -184,98 +197,91 @@ int main(int argc, char** argv) {
 
     /* create nodes from nodeset */
     nodeset(server);
-    UA_Server_addNamespace(server,"http://openAAS.org/metra");
+    UA_Server_addNamespace(server, "http://openAAS.org/metra");
     /* add a sensor sampling job to the server */
-    UA_Job job = {.type = UA_JOBTYPE_METHODCALL,
-                  .job.methodCall = {.method = readSensorJob, .data = NULL} };
+    UA_Job job = { .type = UA_JOBTYPE_METHODCALL, .job.methodCall = { .method =
+            readSensorJob, .data = NULL } };
     UA_Server_addRepeatedJob(server, job, 2500, NULL);
 
-
     /* adding temperature node */
-    UA_DataSource temperatureDataSource = (UA_DataSource) {
-            .handle = (void*)READ_TEMPERATURE, .read = readSensor, .write = NULL};
+    UA_DataSource temperatureDataSource =
+            (UA_DataSource ) { .handle = (void*) READ_TEMPERATURE,
+                            .read = readSensor, .write = NULL };
 
     /* adding LED datasource */
 
-    UA_DataSource LEDDataSource = (UA_DataSource) {.handle = (void*)READ_TEMPERATURE, .read = readLed, .write = NULL};
-    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6003), LEDDataSource);
-    /*UA_NodeId temperatureNodeId = UA_NODEID_STRING(1, "temperature");
-    UA_QualifiedName temperatureNodeName = UA_QUALIFIEDNAME(1, "temperature");
-    UA_VariableAttributes temperatureAttr;
-    UA_VariableAttributes_init(&temperatureAttr);
-    temperatureAttr.description = UA_LOCALIZEDTEXT("en_US","temperature");
-    temperatureAttr.displayName = UA_LOCALIZEDTEXT("en_US","temperature");
-
-    UA_Server_addDataSourceVariableNode(server, temperatureNodeId,
-                                        UA_NODEID_NUMERIC(0, UA_NS0ID_OBJECTSFOLDER),
-                                        UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
-                                        temperatureNodeName, UA_NODEID_NULL, temperatureAttr, temperatureDataSource, NULL); */
+    UA_DataSource LEDDataSource = (UA_DataSource ) { .handle =
+                    (void*) READ_TEMPERATURE, .read = readLed, .write = NULL };
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6003),
+            LEDDataSource);
 
     /* add temperature datasource to a generated node */
-    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6180), temperatureDataSource);
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6180),
+            temperatureDataSource);
 
     /* adding humidity node */
-    UA_DataSource humidityDataSource = (UA_DataSource) {
-        .handle = (void*)READ_HUMIDITY, .read = readSensor, .write = NULL};
-    /* UA_NodeId humidityNodeId = UA_NODEID_STRING(1, "humidity");
-    UA_QualifiedName humidityNodeName = UA_QUALIFIEDNAME(1, "humidity");
-
-    UA_VariableAttributes humidityAttr;
-    UA_VariableAttributes_init(&humidityAttr);
-    humidityAttr.description = UA_LOCALIZEDTEXT("en_US","humidity");
-    humidityAttr.displayName = UA_LOCALIZEDTEXT("en_US","humidity");
-
-    UA_Server_addDataSourceVariableNode(server, humidityNodeId,
-                                        UA_NODEID_NUMERIC(0, UA_NS0ID_OBJECTSFOLDER),
-                                        UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
-                                        humidityNodeName, UA_NODEID_NULL, humidityAttr, humidityDataSource, NULL); */
+    UA_DataSource humidityDataSource = (UA_DataSource ) { .handle =
+                    (void*) READ_HUMIDITY, .read = readSensor, .write = NULL };
 
     /* add temperature datasource to a generated node */
-    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6026), humidityDataSource);
+    UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6026),
+            humidityDataSource);
 
     /* LMSR */
     UA_ObjectAttributes objAtrPeerManager;
     UA_ObjectAttributes_init(&objAtrPeerManager);
-    UA_NodeId peerManagerNodeId = UA_NODEID_NUMERIC(1, 1);
+    UA_NodeId LMSRNodeId = UA_NODEID_NUMERIC(1, 1);
     char* peerManager = "LMSR";
-    createComponent(&objAtrPeerManager, peerManagerNodeId, peerManager, server, UA_NODEID_NUMERIC(0, 2253));
+    createComponent(&objAtrPeerManager, LMSRNodeId, peerManager, server,
+            UA_NODEID_NUMERIC(0, 2253));
 
     /* Array with registered components */
     UA_NodeId registeredComponentsId = UA_NODEID_NUMERIC(1, 3);
-    UA_QualifiedName registeredComponentsNodeName = UA_QUALIFIEDNAME(1, "registeredComponents");
+    UA_QualifiedName registeredComponentsNodeName = UA_QUALIFIEDNAME(1,
+            "registeredComponents");
     UA_VariableAttributes registeredComponentsAttr;
     UA_VariableAttributes_init(&registeredComponentsAttr);
     size_t componentCount = 4;
-    UA_String* registeredComponentsArray = UA_Array_new(componentCount, &UA_TYPES[UA_TYPES_STRING]);
+    UA_String* registeredComponentsArray = UA_Array_new(componentCount,
+            &UA_TYPES[UA_TYPES_STRING]);
     UA_String_init(&registeredComponentsArray[0]);
-    registeredComponentsArray[0] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor");
+    registeredComponentsArray[0] = UA_STRING_ALLOC(
+            "http://boschrexroth.de/sectorxx/Inventory001_MultiSensor");
     UA_String_init(&registeredComponentsArray[1]);
-    registeredComponentsArray[1] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Humidity");
+    registeredComponentsArray[1] =
+            UA_STRING_ALLOC(
+                    "http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Humidity");
     UA_String_init(&registeredComponentsArray[2]);
-    registeredComponentsArray[2] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Lamp");
+    registeredComponentsArray[2] = UA_STRING_ALLOC(
+            "http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Lamp");
     UA_String_init(&registeredComponentsArray[3]);
-    registeredComponentsArray[3] = UA_STRING_ALLOC("http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Temperature");
+    registeredComponentsArray[3] =
+            UA_STRING_ALLOC(
+                    "http://boschrexroth.de/sectorxx/Inventory001_MultiSensor_Temperature");
 
+    UA_Variant_setArray(&registeredComponentsAttr.value,
+            registeredComponentsArray, componentCount,
+            &UA_TYPES[UA_TYPES_STRING]);
+    registeredComponentsAttr.description = UA_LOCALIZEDTEXT("en_US",
+            "registeredComponents");
+    registeredComponentsAttr.displayName = UA_LOCALIZEDTEXT("en_US",
+            "registeredComponents");
 
-
-    UA_Variant_setArray(&registeredComponentsAttr.value, registeredComponentsArray, componentCount, &UA_TYPES[UA_TYPES_STRING]);
-    registeredComponentsAttr.description = UA_LOCALIZEDTEXT("en_US","registeredComponents");
-    registeredComponentsAttr.displayName = UA_LOCALIZEDTEXT("en_US","registeredComponents");
-
-    UA_Server_addVariableNode(server, registeredComponentsId, peerManagerNodeId,
-                                  UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES), registeredComponentsNodeName,
-                                  UA_NODEID_NULL, registeredComponentsAttr, NULL, NULL);
+    UA_Server_addVariableNode(server, registeredComponentsId, LMSRNodeId,
+            UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
+            registeredComponentsNodeName, UA_NODEID_NULL,
+            registeredComponentsAttr, NULL, NULL);
 
     /* adding dropMessage method node */
     UA_MethodAttributes diagnosisAttr;
     UA_MethodAttributes_init(&diagnosisAttr);
-    diagnosisAttr.description = UA_LOCALIZEDTEXT("en_US","dropMessage");
-    diagnosisAttr.displayName = UA_LOCALIZEDTEXT("en_US","dropMessage");
+    diagnosisAttr.description = UA_LOCALIZEDTEXT("en_US", "dropMessage");
+    diagnosisAttr.displayName = UA_LOCALIZEDTEXT("en_US", "dropMessage");
     diagnosisAttr.executable = true;
     diagnosisAttr.userExecutable = true;
 
     /* add the method node with the callback */
-    UA_Argument* inputArguments = UA_Array_new(3,&UA_TYPES[UA_TYPES_ARGUMENT]);
+    UA_Argument* inputArguments = UA_Array_new(3, &UA_TYPES[UA_TYPES_ARGUMENT]);
     UA_Argument_init(&inputArguments[0]);
     inputArguments[0].dataType = UA_TYPES[UA_TYPES_STRING].typeId;
     inputArguments[0].description = UA_LOCALIZEDTEXT("en_US", "SenderAddress");
@@ -283,7 +289,8 @@ int main(int argc, char** argv) {
     inputArguments[0].valueRank = -1;
     UA_Argument_init(&inputArguments[1]);
     inputArguments[1].dataType = UA_TYPES[UA_TYPES_STRING].typeId;
-    inputArguments[1].description = UA_LOCALIZEDTEXT("en_US", "ReceiverAddress");
+    inputArguments[1].description = UA_LOCALIZEDTEXT("en_US",
+            "ReceiverAddress");
     inputArguments[1].name = UA_STRING("ReceiverAddress");
     inputArguments[1].valueRank = -1;
     UA_Argument_init(&inputArguments[2]);
@@ -292,13 +299,10 @@ int main(int argc, char** argv) {
     inputArguments[2].name = UA_STRING("Message");
     inputArguments[2].valueRank = -1;
 
-    UA_Server_addMethodNode(server, UA_NODEID_NUMERIC(1, 2),
-                            peerManagerNodeId,
-                            UA_NODEID_NUMERIC(0, UA_NS0ID_HASORDEREDCOMPONENT),
-                            UA_QUALIFIEDNAME(1, "dropMessage"),
-                            diagnosisAttr, &diagnosisMethod, server,
-                            3, inputArguments, 0, NULL, NULL);
-
+    UA_Server_addMethodNode(server, UA_NODEID_NUMERIC(1, 2), LMSRNodeId,
+            UA_NODEID_NUMERIC(0, UA_NS0ID_HASORDEREDCOMPONENT),
+            UA_QUALIFIEDNAME(1, "dropMessage"), diagnosisAttr, &diagnosisMethod,
+            server, 3, inputArguments, 0, NULL, NULL);
 
     {
         UA_ApplicationDescription app0;
@@ -331,28 +335,55 @@ int main(int argc, char** argv) {
         ns[4] = 4;
         UA_Server_addApplication(server, &app0, ns, 5);
     }
+
     {
         UA_ExpandedNodeId organizes;
         UA_ExpandedNodeId_init(&organizes);
-        organizes.nodeId = UA_NODEID_NUMERIC(3,5003);
-        UA_Server_addReference(server,UA_NODEID_NUMERIC(3,5036),UA_NODEID_NUMERIC(0,35),organizes,true);
+        organizes.nodeId = UA_NODEID_NUMERIC(3, 5003);
+        UA_Server_addReference(server, UA_NODEID_NUMERIC(3, 5036),
+                UA_NODEID_NUMERIC(0, 35), organizes, true);
     }
 
     {
-            UA_ExpandedNodeId organizes;
-            UA_ExpandedNodeId_init(&organizes);
-            organizes.nodeId = UA_NODEID_NUMERIC(3,5076);
-            UA_Server_addReference(server,UA_NODEID_NUMERIC(3,5036),UA_NODEID_NUMERIC(0,35),organizes,true);
+        UA_ExpandedNodeId organizes;
+        UA_ExpandedNodeId_init(&organizes);
+        organizes.nodeId = UA_NODEID_NUMERIC(3, 5076);
+        UA_Server_addReference(server, UA_NODEID_NUMERIC(3, 5036),
+                UA_NODEID_NUMERIC(0, 35), organizes, true);
     }
 
     {
-            UA_ExpandedNodeId organizes;
-            UA_ExpandedNodeId_init(&organizes);
-            organizes.nodeId = UA_NODEID_NUMERIC(3,5041);
-            UA_Server_addReference(server,UA_NODEID_NUMERIC(3,5036),UA_NODEID_NUMERIC(0,35),organizes,true);
+        UA_ExpandedNodeId organizes;
+        UA_ExpandedNodeId_init(&organizes);
+        organizes.nodeId = UA_NODEID_NUMERIC(3, 5041);
+        UA_Server_addReference(server, UA_NODEID_NUMERIC(3, 5036),
+                UA_NODEID_NUMERIC(0, 35), organizes, true);
+    }
+    /* adding the opc ua way to switch the dianosis led */
+    /* add the method node with the callback */
+    {
+        UA_Argument *inputArgument = UA_Array_new(1,&UA_TYPES[UA_TYPES_ARGUMENT]);
+        UA_Argument_init(inputArgument);
+        inputArgument->dataType = UA_TYPES[UA_TYPES_STRING].typeId;
+        inputArgument->description = UA_LOCALIZEDTEXT("en_US","value can be 'ON' or 'OFF' ");
+        inputArgument->name = UA_STRING("LEDState");
+        inputArgument->valueRank = -1;
+
+        UA_MethodAttributes switchLedAttr;
+        UA_MethodAttributes_init(&switchLedAttr);
+        switchLedAttr.description = UA_LOCALIZEDTEXT("en_US", "switchLED");
+        switchLedAttr.displayName = UA_LOCALIZEDTEXT("en_US", "switchLED");
+        switchLedAttr.executable = true;
+        switchLedAttr.userExecutable = true;
+
+        UA_StatusCode ret = UA_Server_addMethodNode(server, getNewNodeId(3),
+                UA_NODEID_NUMERIC(3, 5078),
+                UA_NODEID_NUMERIC(0, UA_NS0ID_HASORDEREDCOMPONENT),
+                UA_QUALIFIEDNAME(1, "switchLED"), switchLedAttr, &switchLED,
+                server, 1, inputArgument, 0, NULL, NULL);
     }
     UA_StatusCode retval = UA_Server_run(server, &running);
     UA_Server_delete(server);
     nl.deleteMembers(&nl);
-    return (int)retval;
+    return (int) retval;
 }
