@@ -21,7 +21,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="y/IqVW1+I8+TQ8PNf0Ov8g==" Version="1.4.4"/>
+            <ModelInfo Tool="UaModeler" Hash="QdAQoTDhX2mI5qrriEYW8Q==" Version="1.4.4"/>
         </Extension>
     </Extensions>
     <UADataType NodeId="ns=1;i=23003" BrowseName="1:ExpressionLogicEnumType">
@@ -148,10 +148,10 @@
         </References>
         <Definition Name="1:IdentificatorDataType">
             <Field DataType="String" Name="IdSpecification"/>
-            <Field DataType="String" Name="IdType"/>
+            <Field DataType="IdentificatorEnumType" Name="IdType"/>
         </Definition>
     </UADataType>
-    <UAVariable DataType="String" Historizing="true" ParentNodeId="ns=1;i=6008" NodeId="ns=1;i=6024" BrowseName="2:IdentificatorDataType">
+    <UAVariable DataType="String" Historizing="true" ParentNodeId="ns=1;i=6008" NodeId="ns=1;i=6024" BrowseName="1:IdentificatorDataType">
         <DisplayName>IdentificatorDataType</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
@@ -162,7 +162,7 @@
             <uax:String>IdentificatorDataType</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable DataType="String" Historizing="true" NodeId="ns=1;i=6025" BrowseName="2:IdentificatorDataType">
+    <UAVariable DataType="String" Historizing="true" NodeId="ns=1;i=6025" BrowseName="1:IdentificatorDataType">
         <DisplayName>IdentificatorDataType</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
@@ -191,25 +191,25 @@
         W1lc3BhY2U9Imh0dHA6Ly9vcGNmb3VuZGF0aW9uLm9yZy9VQS8iLz4KIDxvcGM6U3RydWN0d
         XJlZFR5cGUgQmFzZVR5cGU9InVhOkV4dGVuc2lvbk9iamVjdCIgTmFtZT0iSWRlbnRpZmljY
         XRvckRhdGFUeXBlIj4KICA8b3BjOkZpZWxkIFR5cGVOYW1lPSJvcGM6Q2hhckFycmF5IiBOY
-        W1lPSJJZFNwZWNpZmljYXRpb24iLz4KICA8b3BjOkZpZWxkIFR5cGVOYW1lPSJvcGM6Q2hhc
-        kFycmF5IiBOYW1lPSJJZFR5cGUiLz4KIDwvb3BjOlN0cnVjdHVyZWRUeXBlPgogPG9wYzpFb
-        nVtZXJhdGVkVHlwZSBMZW5ndGhJbkJpdHM9IjMyIiBOYW1lPSJFeHByZXNzaW9uTG9naWNFb
-        nVtVHlwZSI+CiAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iR1QiIFZhbHVlPSIwIi8+C
-        iAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iR0UiIFZhbHVlPSIxIi8+CiAgPG9wYzpFb
-        nVtZXJhdGVkVmFsdWUgTmFtZT0iRVEiIFZhbHVlPSIyIi8+CiAgPG9wYzpFbnVtZXJhdGVkV
-        mFsdWUgTmFtZT0iTEUiIFZhbHVlPSIzIi8+CiAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZ
-        T0iTFQiIFZhbHVlPSI0Ii8+CiAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iTkUiIFZhb
-        HVlPSI1Ii8+CiA8L29wYzpFbnVtZXJhdGVkVHlwZT4KIDxvcGM6RW51bWVyYXRlZFR5cGUgT
-        GVuZ3RoSW5CaXRzPSIzMiIgTmFtZT0iRXhwcmVzc2lvblNlbWFudGljRW51bVR5cGUiPgogI
-        DxvcGM6RW51bWVyYXRlZFZhbHVlIE5hbWU9IlIiIFZhbHVlPSIwIi8+CiAgPG9wYzpFbnVtZ
-        XJhdGVkVmFsdWUgTmFtZT0iQSIgVmFsdWU9IjEiLz4KICA8b3BjOkVudW1lcmF0ZWRWYWx1Z
-        SBOYW1lPSJNIiBWYWx1ZT0iMiIvPgogIDxvcGM6RW51bWVyYXRlZFZhbHVlIE5hbWU9IlMiI
-        FZhbHVlPSIzIi8+CiA8L29wYzpFbnVtZXJhdGVkVHlwZT4KIDxvcGM6RW51bWVyYXRlZFR5c
-        GUgTGVuZ3RoSW5CaXRzPSIzMiIgTmFtZT0iSWRlbnRpZmljYXRvckVudW1UeXBlIj4KICA8b
-        3BjOkVudW1lcmF0ZWRWYWx1ZSBOYW1lPSJJU08yOTAwMi01IiBWYWx1ZT0iMCIvPgogIDxvc
-        GM6RW51bWVyYXRlZFZhbHVlIE5hbWU9IlVSSSIgVmFsdWU9IjEiLz4KICA8b3BjOkVudW1lc
-        mF0ZWRWYWx1ZSBOYW1lPSJQcm9wcmlldGFyeSIgVmFsdWU9IjIiLz4KIDwvb3BjOkVudW1lc
-        mF0ZWRUeXBlPgo8L29wYzpUeXBlRGljdGlvbmFyeT4K</uax:ByteString>
+        W1lPSJJZFNwZWNpZmljYXRpb24iLz4KICA8b3BjOkZpZWxkIFR5cGVOYW1lPSJ0bnM6SWRlb
+        nRpZmljYXRvckVudW1UeXBlIiBOYW1lPSJJZFR5cGUiLz4KIDwvb3BjOlN0cnVjdHVyZWRUe
+        XBlPgogPG9wYzpFbnVtZXJhdGVkVHlwZSBMZW5ndGhJbkJpdHM9IjMyIiBOYW1lPSJFeHByZ
+        XNzaW9uTG9naWNFbnVtVHlwZSI+CiAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iR1QiI
+        FZhbHVlPSIwIi8+CiAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iR0UiIFZhbHVlPSIxI
+        i8+CiAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iRVEiIFZhbHVlPSIyIi8+CiAgPG9wY
+        zpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iTEUiIFZhbHVlPSIzIi8+CiAgPG9wYzpFbnVtZXJhd
+        GVkVmFsdWUgTmFtZT0iTFQiIFZhbHVlPSI0Ii8+CiAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgT
+        mFtZT0iTkUiIFZhbHVlPSI1Ii8+CiA8L29wYzpFbnVtZXJhdGVkVHlwZT4KIDxvcGM6RW51b
+        WVyYXRlZFR5cGUgTGVuZ3RoSW5CaXRzPSIzMiIgTmFtZT0iRXhwcmVzc2lvblNlbWFudGljR
+        W51bVR5cGUiPgogIDxvcGM6RW51bWVyYXRlZFZhbHVlIE5hbWU9IlIiIFZhbHVlPSIwIi8+C
+        iAgPG9wYzpFbnVtZXJhdGVkVmFsdWUgTmFtZT0iQSIgVmFsdWU9IjEiLz4KICA8b3BjOkVud
+        W1lcmF0ZWRWYWx1ZSBOYW1lPSJNIiBWYWx1ZT0iMiIvPgogIDxvcGM6RW51bWVyYXRlZFZhb
+        HVlIE5hbWU9IlMiIFZhbHVlPSIzIi8+CiA8L29wYzpFbnVtZXJhdGVkVHlwZT4KIDxvcGM6R
+        W51bWVyYXRlZFR5cGUgTGVuZ3RoSW5CaXRzPSIzMiIgTmFtZT0iSWRlbnRpZmljYXRvckVud
+        W1UeXBlIj4KICA8b3BjOkVudW1lcmF0ZWRWYWx1ZSBOYW1lPSJJU08yOTAwMi01IiBWYWx1Z
+        T0iMCIvPgogIDxvcGM6RW51bWVyYXRlZFZhbHVlIE5hbWU9IlVSSSIgVmFsdWU9IjEiLz4KI
+        CA8b3BjOkVudW1lcmF0ZWRWYWx1ZSBOYW1lPSJQcm9wcmlldGFyeSIgVmFsdWU9IjIiLz4KI
+        Dwvb3BjOkVudW1lcmF0ZWRUeXBlPgo8L29wYzpUeXBlRGljdGlvbmFyeT4K</uax:ByteString>
         </Value>
     </UAVariable>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=6008" NodeId="ns=1;i=6021" BrowseName="NamespaceUri">
@@ -280,16 +280,16 @@
         XhUeXBlIG5hbWU9IklkZW50aWZpY2F0b3JEYXRhVHlwZSI+CiAgPHhzOnNlcXVlbmNlPgogI
         CA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZT0ieHM6c3Rya
         W5nIiBuYW1lPSJJZFNwZWNpZmljYXRpb24iLz4KICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzP
-        SIwIiBtYXhPY2N1cnM9IjEiIHR5cGU9InhzOnN0cmluZyIgbmFtZT0iSWRUeXBlIi8+CiAgP
-        C94czpzZXF1ZW5jZT4KIDwveHM6Y29tcGxleFR5cGU+CiA8eHM6ZWxlbWVudCB0eXBlPSJ0b
-        nM6SWRlbnRpZmljYXRvckRhdGFUeXBlIiBuYW1lPSJJZGVudGlmaWNhdG9yRGF0YVR5cGUiL
-        z4KIDx4czpjb21wbGV4VHlwZSBuYW1lPSJMaXN0T2ZJZGVudGlmaWNhdG9yRGF0YVR5cGUiP
-        gogIDx4czpzZXF1ZW5jZT4KICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBtYXhPY2N1c
-        nM9InVuYm91bmRlZCIgdHlwZT0idG5zOklkZW50aWZpY2F0b3JEYXRhVHlwZSIgbmFtZT0iS
-        WRlbnRpZmljYXRvckRhdGFUeXBlIiBuaWxsYWJsZT0idHJ1ZSIvPgogIDwveHM6c2VxdWVuY
-        2U+CiA8L3hzOmNvbXBsZXhUeXBlPgogPHhzOmVsZW1lbnQgdHlwZT0idG5zOkxpc3RPZklkZ
-        W50aWZpY2F0b3JEYXRhVHlwZSIgbmFtZT0iTGlzdE9mSWRlbnRpZmljYXRvckRhdGFUeXBlI
-        iBuaWxsYWJsZT0idHJ1ZSIvPgo8L3hzOnNjaGVtYT4K</uax:ByteString>
+        SIwIiBtYXhPY2N1cnM9IjEiIHR5cGU9InRuczpJZGVudGlmaWNhdG9yRW51bVR5cGUiIG5hb
+        WU9IklkVHlwZSIvPgogIDwveHM6c2VxdWVuY2U+CiA8L3hzOmNvbXBsZXhUeXBlPgogPHhzO
+        mVsZW1lbnQgdHlwZT0idG5zOklkZW50aWZpY2F0b3JEYXRhVHlwZSIgbmFtZT0iSWRlbnRpZ
+        mljYXRvckRhdGFUeXBlIi8+CiA8eHM6Y29tcGxleFR5cGUgbmFtZT0iTGlzdE9mSWRlbnRpZ
+        mljYXRvckRhdGFUeXBlIj4KICA8eHM6c2VxdWVuY2U+CiAgIDx4czplbGVtZW50IG1pbk9jY
+        3Vycz0iMCIgbWF4T2NjdXJzPSJ1bmJvdW5kZWQiIHR5cGU9InRuczpJZGVudGlmaWNhdG9yR
+        GF0YVR5cGUiIG5hbWU9IklkZW50aWZpY2F0b3JEYXRhVHlwZSIgbmlsbGFibGU9InRydWUiL
+        z4KICA8L3hzOnNlcXVlbmNlPgogPC94czpjb21wbGV4VHlwZT4KIDx4czplbGVtZW50IHR5c
+        GU9InRuczpMaXN0T2ZJZGVudGlmaWNhdG9yRGF0YVR5cGUiIG5hbWU9Ikxpc3RPZklkZW50a
+        WZpY2F0b3JEYXRhVHlwZSIgbmlsbGFibGU9InRydWUiLz4KPC94czpzY2hlbWE+Cg==</uax:ByteString>
         </Value>
     </UAVariable>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=6022" NodeId="ns=1;i=6023" BrowseName="NamespaceUri">
@@ -601,3 +601,4 @@
         </References>
     </UAObject>
 </UANodeSet>
+
