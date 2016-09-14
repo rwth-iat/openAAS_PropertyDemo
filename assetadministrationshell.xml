@@ -14,7 +14,7 @@
         <Alias Alias="HasSubtype">i=45</Alias>
         <Alias Alias="HasProperty">i=46</Alias>
         <Alias Alias="HasComponent">i=47</Alias>
-        <Alias Alias="DateString">i=12881</Alias>
+        <Alias Alias="String">i=12881</Alias>
         <Alias Alias="IdentificatorDataType">ns=2;i=3002</Alias>
         <Alias Alias="IdentificatorEnumType">ns=2;i=23002</Alias>
         <Alias Alias="ExpressionLogicEnumType">ns=2;i=23003</Alias>
@@ -194,7 +194,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6286" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6286" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -213,7 +213,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5013</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5093" NodeId="ns=1;i=6287" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5093" NodeId="ns=1;i=6287" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -253,7 +253,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6289" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=6289" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -272,7 +272,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5094" NodeId="ns=1;i=6290" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5094" NodeId="ns=1;i=6290" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -301,7 +301,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=6139" NodeId="ns=1;i=6005" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6139" NodeId="ns=1;i=6005" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -349,7 +349,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6280" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6280" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -368,7 +368,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5014</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5091" NodeId="ns=1;i=6281" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5091" NodeId="ns=1;i=6281" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -388,7 +388,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6138" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6138" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -497,7 +497,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5008</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6012" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6012" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -518,7 +518,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5007" NodeId="ns=1;i=6013" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5007" NodeId="ns=1;i=6013" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -648,7 +648,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6019</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5085" NodeId="ns=1;i=6006" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5085" NodeId="ns=1;i=6006" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -667,7 +667,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5085</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5011" NodeId="ns=1;i=6008" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5011" NodeId="ns=1;i=6008" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -687,7 +687,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5085" NodeId="ns=1;i=6019" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5085" NodeId="ns=1;i=6019" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -757,7 +757,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5069" NodeId="ns=1;i=6029" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5069" NodeId="ns=1;i=6029" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -776,7 +776,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5069</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6030" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6030" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -796,7 +796,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5069" NodeId="ns=1;i=6032" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5069" NodeId="ns=1;i=6032" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -846,7 +846,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5071" NodeId="ns=1;i=6036" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5071" NodeId="ns=1;i=6036" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -865,7 +865,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5071</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5019" NodeId="ns=1;i=6037" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5019" NodeId="ns=1;i=6037" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -885,7 +885,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5071" NodeId="ns=1;i=6039" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5071" NodeId="ns=1;i=6039" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -938,7 +938,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6047" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6047" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -957,7 +957,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6048" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5021" NodeId="ns=1;i=6048" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -977,7 +977,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6050" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6050" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1007,7 +1007,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6026</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5089" NodeId="ns=1;i=6024" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5089" NodeId="ns=1;i=6024" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1017,7 +1017,7 @@
             <uax:String>Humidity</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5089" NodeId="ns=1;i=6025" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5089" NodeId="ns=1;i=6025" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1067,7 +1067,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5073" NodeId="ns=1;i=6086" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5073" NodeId="ns=1;i=6086" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1086,7 +1086,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5073</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6087" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5027" NodeId="ns=1;i=6087" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1106,7 +1106,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5073" NodeId="ns=1;i=6089" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5073" NodeId="ns=1;i=6089" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1156,7 +1156,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5075" NodeId="ns=1;i=6093" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5075" NodeId="ns=1;i=6093" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1175,7 +1175,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5075</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6094" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6094" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1195,7 +1195,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5075" NodeId="ns=1;i=6096" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5075" NodeId="ns=1;i=6096" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1248,7 +1248,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5038" NodeId="ns=1;i=6104" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5038" NodeId="ns=1;i=6104" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1267,7 +1267,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5038</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6105" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6105" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1287,7 +1287,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5038" NodeId="ns=1;i=6107" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5038" NodeId="ns=1;i=6107" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1337,7 +1337,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5067" NodeId="ns=1;i=6111" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5067" NodeId="ns=1;i=6111" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1356,7 +1356,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5067</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6112" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6112" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1376,7 +1376,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5067" NodeId="ns=1;i=6114" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5067" NodeId="ns=1;i=6114" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1429,7 +1429,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6118" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6118" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1448,7 +1448,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5039</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6119" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6119" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1468,7 +1468,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6121" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5039" NodeId="ns=1;i=6121" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1521,7 +1521,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5077" NodeId="ns=1;i=6125" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5077" NodeId="ns=1;i=6125" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1540,7 +1540,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5077</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6126" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5033" NodeId="ns=1;i=6126" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1560,7 +1560,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5077" NodeId="ns=1;i=6128" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5077" NodeId="ns=1;i=6128" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1613,7 +1613,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5040" NodeId="ns=1;i=6132" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5040" NodeId="ns=1;i=6132" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1632,7 +1632,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5040</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5034" NodeId="ns=1;i=6133" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5034" NodeId="ns=1;i=6133" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1652,7 +1652,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5040" NodeId="ns=1;i=6135" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5040" NodeId="ns=1;i=6135" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1696,7 +1696,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6044</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5049" NodeId="ns=1;i=6041" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5049" NodeId="ns=1;i=6041" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1715,7 +1715,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5049</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5020" NodeId="ns=1;i=6042" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5020" NodeId="ns=1;i=6042" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1735,7 +1735,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5049" NodeId="ns=1;i=6044" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5049" NodeId="ns=1;i=6044" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1778,7 +1778,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5068" NodeId="ns=1;i=6054" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5068" NodeId="ns=1;i=6054" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1797,7 +1797,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5068</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5022" NodeId="ns=1;i=6055" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5022" NodeId="ns=1;i=6055" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1817,7 +1817,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5068" NodeId="ns=1;i=6057" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5068" NodeId="ns=1;i=6057" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1870,7 +1870,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5079" NodeId="ns=1;i=6061" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5079" NodeId="ns=1;i=6061" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1889,7 +1889,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5079</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5023" NodeId="ns=1;i=6062" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5023" NodeId="ns=1;i=6062" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1909,7 +1909,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5079" NodeId="ns=1;i=6064" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5079" NodeId="ns=1;i=6064" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1919,7 +1919,7 @@
             <uax:String>VDD</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5079" NodeId="ns=1;i=6065" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5079" NodeId="ns=1;i=6065" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1959,7 +1959,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5081" NodeId="ns=1;i=6068" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5081" NodeId="ns=1;i=6068" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1978,7 +1978,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5081</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6069" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5024" NodeId="ns=1;i=6069" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -1998,7 +1998,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5081" NodeId="ns=1;i=6071" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5081" NodeId="ns=1;i=6071" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2025,7 +2025,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6076</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5070" NodeId="ns=1;i=6073" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5070" NodeId="ns=1;i=6073" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2044,7 +2044,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5070</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5025" NodeId="ns=1;i=6074" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5025" NodeId="ns=1;i=6074" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2064,7 +2064,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5070" NodeId="ns=1;i=6076" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5070" NodeId="ns=1;i=6076" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2104,7 +2104,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5072</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5072" NodeId="ns=1;i=6079" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5072" NodeId="ns=1;i=6079" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2123,7 +2123,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5072</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5026" NodeId="ns=1;i=6080" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5026" NodeId="ns=1;i=6080" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2143,7 +2143,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5072" NodeId="ns=1;i=6082" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5072" NodeId="ns=1;i=6082" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2173,7 +2173,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6101</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5074" NodeId="ns=1;i=6098" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5074" NodeId="ns=1;i=6098" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2192,7 +2192,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5074</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6099" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6099" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2212,7 +2212,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5074" NodeId="ns=1;i=6101" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5074" NodeId="ns=1;i=6101" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2322,7 +2322,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6275</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5086" NodeId="ns=1;i=6283" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5086" NodeId="ns=1;i=6283" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2341,7 +2341,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5086</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5092" NodeId="ns=1;i=6284" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5092" NodeId="ns=1;i=6284" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2468,7 +2468,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6276</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5090" NodeId="ns=1;i=6277" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5090" NodeId="ns=1;i=6277" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2484,7 +2484,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5090</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5088" NodeId="ns=1;i=6278" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5088" NodeId="ns=1;i=6278" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2504,7 +2504,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5090" NodeId="ns=1;i=6276" BrowseName="1:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5090" NodeId="ns=1;i=6276" BrowseName="1:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2627,7 +2627,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5087" NodeId="ns=1;i=6271" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5087" NodeId="ns=1;i=6271" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2646,7 +2646,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5087</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5082" NodeId="ns=1;i=6272" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5082" NodeId="ns=1;i=6272" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2666,7 +2666,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5087" NodeId="ns=1;i=6274" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5087" NodeId="ns=1;i=6274" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2707,7 +2707,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5042</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6292" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6292" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2726,7 +2726,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5095" NodeId="ns=1;i=6293" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5095" NodeId="ns=1;i=6293" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2841,7 +2841,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5042</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6146" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6146" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2860,7 +2860,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5044" NodeId="ns=1;i=6147" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5044" NodeId="ns=1;i=6147" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2889,7 +2889,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=6149" NodeId="ns=1;i=6010" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6149" NodeId="ns=1;i=6010" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2931,7 +2931,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5042</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6142" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6142" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2950,7 +2950,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5043" NodeId="ns=1;i=6143" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5043" NodeId="ns=1;i=6143" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -2970,7 +2970,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6145" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6145" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3037,7 +3037,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5114" NodeId="ns=1;i=6152" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5114" NodeId="ns=1;i=6152" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3056,7 +3056,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5114</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5047" NodeId="ns=1;i=6153" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5047" NodeId="ns=1;i=6153" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3076,7 +3076,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5114" NodeId="ns=1;i=6155" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5114" NodeId="ns=1;i=6155" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3126,7 +3126,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5113" NodeId="ns=1;i=6159" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5113" NodeId="ns=1;i=6159" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3145,7 +3145,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5113</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6160" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5048" NodeId="ns=1;i=6160" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3165,7 +3165,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5113" NodeId="ns=1;i=6162" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5113" NodeId="ns=1;i=6162" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3218,7 +3218,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5107" NodeId="ns=1;i=6166" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5107" NodeId="ns=1;i=6166" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3237,7 +3237,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5107</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5050" NodeId="ns=1;i=6167" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5050" NodeId="ns=1;i=6167" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3257,7 +3257,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5107" NodeId="ns=1;i=6169" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5107" NodeId="ns=1;i=6169" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3310,7 +3310,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5108" NodeId="ns=1;i=6173" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5108" NodeId="ns=1;i=6173" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3329,7 +3329,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5108</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6174" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5051" NodeId="ns=1;i=6174" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3349,7 +3349,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5108" NodeId="ns=1;i=6176" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5108" NodeId="ns=1;i=6176" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3379,7 +3379,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6180</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5109" NodeId="ns=1;i=6178" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5109" NodeId="ns=1;i=6178" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3389,7 +3389,7 @@
             <uax:String>Temperature</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5109" NodeId="ns=1;i=6179" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5109" NodeId="ns=1;i=6179" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3439,7 +3439,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5110" NodeId="ns=1;i=6183" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5110" NodeId="ns=1;i=6183" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3458,7 +3458,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5110</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5052" NodeId="ns=1;i=6184" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5052" NodeId="ns=1;i=6184" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3478,7 +3478,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5110" NodeId="ns=1;i=6186" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5110" NodeId="ns=1;i=6186" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3531,7 +3531,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5111" NodeId="ns=1;i=6190" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5111" NodeId="ns=1;i=6190" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3550,7 +3550,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5111</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5053" NodeId="ns=1;i=6191" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5053" NodeId="ns=1;i=6191" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3570,7 +3570,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5111" NodeId="ns=1;i=6193" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5111" NodeId="ns=1;i=6193" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3620,7 +3620,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5112" NodeId="ns=1;i=6197" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5112" NodeId="ns=1;i=6197" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3639,7 +3639,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5112</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5054" NodeId="ns=1;i=6198" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5054" NodeId="ns=1;i=6198" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3659,7 +3659,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5112" NodeId="ns=1;i=6200" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5112" NodeId="ns=1;i=6200" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3707,7 +3707,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6205</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5096" NodeId="ns=1;i=6202" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5096" NodeId="ns=1;i=6202" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3726,7 +3726,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5096</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5056" NodeId="ns=1;i=6203" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5056" NodeId="ns=1;i=6203" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3746,7 +3746,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5096" NodeId="ns=1;i=6205" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5096" NodeId="ns=1;i=6205" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3789,7 +3789,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5097" NodeId="ns=1;i=6208" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5097" NodeId="ns=1;i=6208" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3808,7 +3808,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5097</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5057" NodeId="ns=1;i=6209" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5057" NodeId="ns=1;i=6209" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3828,7 +3828,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5097" NodeId="ns=1;i=6211" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5097" NodeId="ns=1;i=6211" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3881,7 +3881,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5098" NodeId="ns=1;i=6215" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5098" NodeId="ns=1;i=6215" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3900,7 +3900,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5098</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5058" NodeId="ns=1;i=6216" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5058" NodeId="ns=1;i=6216" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3920,7 +3920,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5098" NodeId="ns=1;i=6218" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5098" NodeId="ns=1;i=6218" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3950,7 +3950,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6223</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5099" NodeId="ns=1;i=6220" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5099" NodeId="ns=1;i=6220" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3969,7 +3969,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5099</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5059" NodeId="ns=1;i=6221" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5059" NodeId="ns=1;i=6221" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -3989,7 +3989,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5099" NodeId="ns=1;i=6223" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5099" NodeId="ns=1;i=6223" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4029,7 +4029,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5100</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5100" NodeId="ns=1;i=6226" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5100" NodeId="ns=1;i=6226" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4048,7 +4048,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5100</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5060" NodeId="ns=1;i=6227" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5060" NodeId="ns=1;i=6227" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4068,7 +4068,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5100" NodeId="ns=1;i=6229" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5100" NodeId="ns=1;i=6229" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4121,7 +4121,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5101" NodeId="ns=1;i=6233" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5101" NodeId="ns=1;i=6233" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4140,7 +4140,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5101</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5061" NodeId="ns=1;i=6234" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5061" NodeId="ns=1;i=6234" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4160,7 +4160,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5101" NodeId="ns=1;i=6236" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5101" NodeId="ns=1;i=6236" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4210,7 +4210,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5102" NodeId="ns=1;i=6240" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5102" NodeId="ns=1;i=6240" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4229,7 +4229,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5102</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5062" NodeId="ns=1;i=6241" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5062" NodeId="ns=1;i=6241" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4249,7 +4249,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5102" NodeId="ns=1;i=6243" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5102" NodeId="ns=1;i=6243" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4279,7 +4279,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6248</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5104" NodeId="ns=1;i=6245" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5104" NodeId="ns=1;i=6245" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4298,7 +4298,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5104</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5063" NodeId="ns=1;i=6246" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5063" NodeId="ns=1;i=6246" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4318,7 +4318,7 @@
             <uax:Int32>0</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5104" NodeId="ns=1;i=6248" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5104" NodeId="ns=1;i=6248" BrowseName="2:Value" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Value</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4358,7 +4358,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5103</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5103" NodeId="ns=1;i=6251" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5103" NodeId="ns=1;i=6251" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4377,7 +4377,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5103</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5064" NodeId="ns=1;i=6252" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5064" NodeId="ns=1;i=6252" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4397,7 +4397,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5103" NodeId="ns=1;i=6254" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5103" NodeId="ns=1;i=6254" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4447,7 +4447,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5105</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5105" NodeId="ns=1;i=6258" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5105" NodeId="ns=1;i=6258" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4466,7 +4466,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5105</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5065" NodeId="ns=1;i=6259" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5065" NodeId="ns=1;i=6259" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4486,7 +4486,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5105" NodeId="ns=1;i=6261" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5105" NodeId="ns=1;i=6261" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4533,7 +4533,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5106</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5106" NodeId="ns=1;i=6265" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5106" NodeId="ns=1;i=6265" BrowseName="2:PropertyName" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>PropertyName</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4552,7 +4552,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5106</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5066" NodeId="ns=1;i=6266" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5066" NodeId="ns=1;i=6266" BrowseName="2:IdSpecification" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -4572,7 +4572,7 @@
             <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
-    <UAVariable DataType="DateString" ParentNodeId="ns=1;i=5106" NodeId="ns=1;i=6268" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5106" NodeId="ns=1;i=6268" BrowseName="2:Unit" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Unit</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
