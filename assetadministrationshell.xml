@@ -2673,7 +2673,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5087</Reference>
         </References>
         <Value>
-            <uax:String>green</uax:String>
+            <uax:String>red</uax:String>
         </Value>
     </UAVariable>
     <UAObject NodeId="ns=1;i=5041" BrowseName="1:Inventory001_MultiSensor_Temperature">
