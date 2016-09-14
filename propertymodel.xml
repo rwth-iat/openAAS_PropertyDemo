@@ -21,7 +21,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="QdAQoTDhX2mI5qrriEYW8Q==" Version="1.4.4"/>
+            <ModelInfo Tool="UaModeler" Hash="4JPP00KcpNXymLSNYx32ZQ==" Version="1.4.4"/>
         </Extension>
     </Extensions>
     <UADataType NodeId="ns=1;i=23003" BrowseName="1:ExpressionLogicEnumType">
@@ -382,9 +382,9 @@
     <UAObject SymbolicName="Statement" ParentNodeId="ns=1;i=1002" NodeId="ns=1;i=5002" BrowseName="1:&lt;Statement>">
         <DisplayName>&lt;Statement></DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1003</Reference>
             <Reference ReferenceType="HasPropertyValueStatement" IsForward="false">ns=1;i=1002</Reference>
             <Reference ReferenceType="HasModellingRule">i=11508</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6018</Reference>
         </References>
     </UAObject>
@@ -601,4 +601,3 @@
         </References>
     </UAObject>
 </UANodeSet>
-
