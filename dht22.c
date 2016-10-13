@@ -122,6 +122,7 @@ static UA_StatusCode switchLED(void *handle, const UA_NodeId objectId,
     UA_LOG_INFO(logger, UA_LOGCATEGORY_SERVER, "Wrong message");
     return UA_STATUSCODE_BADMETHODINVALID;
 }
+
 static UA_StatusCode diagnosisMethod(void *handle, const UA_NodeId objectId,
         size_t inputSize, const UA_Variant *input, size_t outputSize,
         UA_Variant *output) {
@@ -209,7 +210,6 @@ int main(int argc, char** argv) {
                             .read = readSensor, .write = NULL };
 
     /* adding LED datasource */
-
     UA_DataSource LEDDataSource = (UA_DataSource ) { .handle =
                     (void*) READ_TEMPERATURE, .read = readLed, .write = NULL };
     UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6003),
@@ -227,12 +227,12 @@ int main(int argc, char** argv) {
     UA_Server_setVariableNode_dataSource(server, UA_NODEID_NUMERIC(3, 6026),
             humidityDataSource);
 
-    /* LMSR */
+    /* COMCO */
     UA_ObjectAttributes objAtrPeerManager;
     UA_ObjectAttributes_init(&objAtrPeerManager);
-    UA_NodeId LMSRNodeId = UA_NODEID_NUMERIC(1, 1);
-    char* peerManager = "LMSR";
-    createComponent(&objAtrPeerManager, LMSRNodeId, peerManager, server,
+    UA_NodeId COMCONodeId = UA_NODEID_NUMERIC(1, 1);
+    char* peerManager = "COMCO";
+    createComponent(&objAtrPeerManager, COMCONodeId, peerManager, server,
             UA_NODEID_NUMERIC(0, 2253));
 
     /* Array with registered components */
@@ -267,7 +267,7 @@ int main(int argc, char** argv) {
     registeredComponentsAttr.displayName = UA_LOCALIZEDTEXT("en_US",
             "registeredComponents");
 
-    UA_Server_addVariableNode(server, registeredComponentsId, LMSRNodeId,
+    UA_Server_addVariableNode(server, registeredComponentsId, COMCONodeId,
             UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
             registeredComponentsNodeName, UA_NODEID_NULL,
             registeredComponentsAttr, NULL, NULL);
@@ -299,7 +299,7 @@ int main(int argc, char** argv) {
     inputArguments[2].name = UA_STRING("Message");
     inputArguments[2].valueRank = -1;
 
-    UA_Server_addMethodNode(server, UA_NODEID_NUMERIC(1, 2), LMSRNodeId,
+    UA_Server_addMethodNode(server, UA_NODEID_NUMERIC(1, 2), COMCONodeId,
             UA_NODEID_NUMERIC(0, UA_NS0ID_HASORDEREDCOMPONENT),
             UA_QUALIFIEDNAME(1, "dropMessage"), diagnosisAttr, &diagnosisMethod,
             server, 3, inputArguments, 0, NULL, NULL);
