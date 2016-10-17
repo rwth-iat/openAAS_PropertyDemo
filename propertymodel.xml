@@ -21,7 +21,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="4JPP00KcpNXymLSNYx32ZQ==" Version="1.4.4"/>
+            <ModelInfo Tool="UaModeler" Hash="ButtFnkPnrn9Ut9NvbQhhg==" Version="1.4.4"/>
         </Extension>
     </Extensions>
     <UADataType NodeId="ns=1;i=23003" BrowseName="1:ExpressionLogicEnumType">
@@ -86,8 +86,8 @@
         <DisplayName>EnumStrings</DisplayName>
         <References>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=23004</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
             <uax:ListOfLocalizedText>
@@ -122,8 +122,8 @@
         <DisplayName>EnumStrings</DisplayName>
         <References>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=23002</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
             <uax:ListOfLocalizedText>
@@ -350,8 +350,8 @@
         <DisplayName>IdSpecification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=21003</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -361,8 +361,8 @@
         <DisplayName>IdType</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=21003</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
         </References>
         <Value>
             <uax:Int32>0</uax:Int32>
@@ -382,9 +382,9 @@
     <UAObject SymbolicName="Statement" ParentNodeId="ns=1;i=1002" NodeId="ns=1;i=5002" BrowseName="1:&lt;Statement>">
         <DisplayName>&lt;Statement></DisplayName>
         <References>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1003</Reference>
             <Reference ReferenceType="HasPropertyValueStatement" IsForward="false">ns=1;i=1002</Reference>
             <Reference ReferenceType="HasModellingRule">i=11508</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6018</Reference>
         </References>
     </UAObject>
