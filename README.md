@@ -26,3 +26,9 @@ Compile
 ```
 make all
 ```
+# About the demo
+The OPC UA demonstrator shows 4 Asset Administration Shells (AAS) that provide basic information of the shells identities and their contained assets. At the moment, the property information is borne by the corresponding "property value statement". All AAS share some certain common properties: 
+* Every AAS has a unique identifier that identifies the AAS. 
+* Every AAS has a unique identifier that identifies the comprised asset 
+
+Within the OPC UA server, the property value statements are structured in lists. Each list is related to only one property carrier, that is in this case the AAS or the asset.
