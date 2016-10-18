@@ -142,7 +142,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5094</Reference>
         </References>
         <Value>
-            <uax:String>http://acplt.org/propertyTypes/AssetIdentificator</uax:String>
+            <uax:String>http://acplt.org/propertyTypes/AssetId</uax:String>
         </Value>
     </UAVariable>
     <UAVariable DataType="IdentificatorEnumType" ParentNodeId="ns=1;i=5094" NodeId="ns=1;i=6291" BrowseName="2:IdType" UserAccessLevel="3" AccessLevel="3">
