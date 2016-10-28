@@ -266,7 +266,7 @@ int main(int argc, char** argv) {
             "registeredComponents");
     registeredComponentsAttr.displayName = UA_LOCALIZEDTEXT("en_US",
             "registeredComponents");
-
+    registeredComponentsAttr.valueRank = -2;
     UA_Server_addVariableNode(server, registeredComponentsId, COMCONodeId,
             UA_NODEID_NUMERIC(0, UA_NS0ID_ORGANIZES),
             registeredComponentsNodeName, UA_NODEID_NULL,
