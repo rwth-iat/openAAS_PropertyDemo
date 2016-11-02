@@ -27,6 +27,12 @@ Compile
 make all
 ```
 # About the demo
+
+<img src="https://github.com/acplt/openAAS_PropertyDemo/blob/master/img/openAAS_PropertyDemo_arch.png" width="384">
+
+
+
+
 The OPC UA demonstrator shows 4 Asset Administration Shells (AAS) that provide basic information of the shells identities and their contained assets. At the moment, the property information is borne by the corresponding "property value statement". All AAS share some certain common properties: 
 * Every AAS has a unique identifier that identifies the AAS. 
 * Every AAS has a unique identifier that identifies the comprised asset 
